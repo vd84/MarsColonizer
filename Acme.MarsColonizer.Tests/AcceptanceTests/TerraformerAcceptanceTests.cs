@@ -3,7 +3,7 @@ using FluentAssertions;
 
 namespace Acme.MarsColonizer.Tests.AcceptanceTests
 {
-    public class TerraformerTests
+    public class TerraformerAcceptanceTests
     {
         protected Terraformer Sut;
         protected PlanetAnalyzer Analyzer;

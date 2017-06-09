@@ -1,0 +1,32 @@
+﻿using TestStack.BDDfy;
+using Xunit;
+
+namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation3
+{
+    [Story(
+        AsA = "Terraforming engineer",
+        IWant = "To combine multiple directives of the same type",
+        SoThat = "I can receive orders from various sources more easily")]
+    public class MultipleDirectivesOfSameKind : TerraformerAcceptanceTests
+    {
+        [Fact]
+        public void UsingMultipleDirectivesOfSameKind()
+        {
+            var terraformingOrders = string.Empty;
+            var oxygenLevel = 0;
+            this.Given(_ => _.GivenThatIAmTerraformingMars())
+                .When(_ => _.WhenIPerformTerraformingUsing(terraformingOrders))
+                .Then(_ => _.ThenTheOxygenLevelShouldBeEqualTo(oxygenLevel))
+                .WithExamples(new ExampleTable("Terraforming orders", "Oxygen Level", "Average Temperature", "Ocean Coverage")
+                {
+                    { "G1,G1", 2, -30, 0 },
+                    { "A2,A2", 0, -26, 0 },
+                    { "P10,P0", 0, -30, 10 },
+                    { "G1,G1,G1", 3, -30, 0 },
+                    { "G1,G1,G1,G1,G1,G1,G1,G1,G1,G1", 10, -30, 0 },
+                    { "G1,P1,G1,P1,G1", 3, -30, 2 },
+                })
+                .BDDfy();
+        }
+    }
+}
