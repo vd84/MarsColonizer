@@ -14,9 +14,13 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation3
         {
             var terraformingOrders = string.Empty;
             var oxygenLevel = 0;
+            var averageTemperature = 0;
+            var oceanCoverage = 0;
             this.Given(_ => _.GivenThatIAmTerraformingMars())
                 .When(_ => _.WhenIPerformTerraformingUsing(terraformingOrders))
                 .Then(_ => _.ThenTheOxygenLevelShouldBeEqualTo(oxygenLevel))
+                .And(_ => _.ThenTheAverageTemperatureShouldBeEqualTo(averageTemperature))
+                .And(_ => _.ThenTheOceanCoverageShouldBeEqualTo(oceanCoverage))
                 .WithExamples(new ExampleTable("Terraforming orders", "Oxygen Level", "Average Temperature", "Ocean Coverage")
                 {
                     { "G1,G1", 2, -30, 0 },
