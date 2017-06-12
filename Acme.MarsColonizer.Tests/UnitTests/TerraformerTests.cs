@@ -1,4 +1,5 @@
-﻿using Acme.Universe;
+﻿using Acme.MarsColonizer.Directives;
+using Acme.Universe;
 using FluentAssertions;
 using Xunit;
 
@@ -17,26 +18,13 @@ namespace Acme.MarsColonizer.Tests.UnitTests
         }
 
         [Fact]
-        public void SimpleGreenery()
+        public void SingleAsteroid()
         {
             // Arrange
-            var orders = "G1";
+            var directive = new CrashAsteroid(1);
 
             // Act
-            Sut.PerformTerraforming(orders);
-
-            // Assert
-            Analyzer.MeasureOxygenLevel().Should().Be(1);
-        }
-
-        [Fact]
-        public void SimpleAsteroid()
-        {
-            // Arrange
-            var orders = "A1";
-
-            // Act
-            Sut.PerformTerraforming(orders);
+            Sut.ProcessDirective(directive);
 
             // Assert
             Analyzer.MeasureAverageTemperature().Should().Be(-28);

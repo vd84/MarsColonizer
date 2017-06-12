@@ -30,8 +30,8 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation3
                     { "\nA1\nG2", 2, -28, 0 },
                     { " G2,A0", 2, -30, 0 },
                     { "P1,G10,A0 ", 10, -30, 1 },
-                    { "G1;A2,P2", 3, -26, 2 },
-                    { ",G1,A2\nP2;", 3, -26, 2 }
+                    { "G1;A2,P2", 1, -26, 2 },
+                    { ",G1,A2\nP2;", 1, -26, 2 }
                 })
                 .BDDfy();
         }

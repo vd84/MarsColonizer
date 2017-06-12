@@ -14,9 +14,14 @@ namespace Acme.MarsColonizer
 
         public IPlanet Planet { get; }
 
-        public void PerformTerraforming(string orders)
+        public void Execute(string orders)
         {
             var directive = DirectiveIdentifier.Parse(orders);
+            ProcessDirective(directive);
+        }
+
+        internal void ProcessDirective(Directive directive)
+        {
             if (directive is ConstructGreenery)
                 Planet.ConstructGreenery();
         }

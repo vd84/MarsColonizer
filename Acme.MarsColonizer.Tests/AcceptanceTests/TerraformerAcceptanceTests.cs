@@ -17,7 +17,7 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests
 
         public void WhenIPerformTerraformingUsing(string orders)
         {
-            Sut.PerformTerraforming(orders);
+            Sut.Execute(orders);
         }
 
         public void ThenTheOxygenLevelShouldBeEqualTo(int expected)

@@ -24,7 +24,7 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation3
                 .WithExamples(new ExampleTable("Terraforming orders", "Oxygen Level", "Average Temperature", "Ocean Coverage")
                 {
                     { "G1,G1", 2, -30, 0 },
-                    { "A2,A2", 0, -26, 0 },
+                    { "A2,A2", 0, -22, 0 },
                     { "P10,P0", 0, -30, 10 },
                     { "G1,G1,G1", 3, -30, 0 },
                     { "G1,G1,G1,G1,G1,G1,G1,G1,G1,G1", 10, -30, 0 },
