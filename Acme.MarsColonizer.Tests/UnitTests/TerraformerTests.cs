@@ -27,7 +27,8 @@ namespace Acme.MarsColonizer.Tests.UnitTests
             Sut.ProcessDirective(directive);
 
             // Assert
-            Analyzer.MeasureAverageTemperature().Should().Be(-28);
+            Analyzer.MeasureAverageTemperature()
+                .Should().Be(-28);
         }
     }
 }

@@ -10,7 +10,8 @@ namespace Acme.MarsColonizer.Tests.UnitTests
         [Fact]
         public void CanIdentifyGreenery()
         {
-            DirectiveIdentifier.Parse("G1").Should().BeOfType<ConstructGreenery>();
+            DirectiveIdentifier.Parse("G1")
+                .Should().BeOfType<ConstructGreenery>();
         }
     }
 }
