@@ -1,5 +1,5 @@
 # Acme.MarsColonizer
-A TDD exercise combining Roy Osherove's TDD Kata and the Terraforming Mars boardgame.
+A TDD lab/exercise loosely based on Roy Osherove's TDD Kata and the Terraforming Mars boardgame.
 
 The lab is divided into 4 separate generations, which introduce new requirements and further the terraforming efforts on Mars. The idea is that each generation is only revealed upon the successful completion of the previous generation (no peeking).
 
