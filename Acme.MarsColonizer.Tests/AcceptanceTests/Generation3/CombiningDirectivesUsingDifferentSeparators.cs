@@ -3,13 +3,14 @@ using Xunit;
 
 namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation3
 {
+    [Trait("Category", "Generation 3")]
     [Story(
         AsA = "Terraforming engineer",
         IWant = "To combine directives of different types using newline, comma, or semicolon as separators",
         SoThat = "I can receive orders from various sources more easily")]
     public class CombiningDirectivesUsingDifferentSeparators : TerraformerAcceptanceTests
     {
-        [Fact]
+        [Fact(Skip = "Not run in the first 2 generations")]
         public void CombiningDifferentDirectives()
         {
             var terraformingOrders = string.Empty;
@@ -18,6 +19,7 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation3
             var oceanCoverage = 0;
             this.Given(_ => _.GivenThatIAmTerraformingMars())
                 .When(_ => _.WhenIPerformTerraformingUsing(terraformingOrders))
+                .And(_ => _.WhenIAnalyzeThePlanet())
                 .Then(_ => _.ThenTheOxygenLevelShouldBeEqualTo(oxygenLevel))
                 .And(_ => _.ThenTheAverageTemperatureShouldBeEqualTo(averageTemperature))
                 .And(_ => _.ThenTheOceanCoverageShouldBeEqualTo(oceanCoverage))

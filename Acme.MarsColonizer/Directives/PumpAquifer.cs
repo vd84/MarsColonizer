@@ -2,7 +2,8 @@
 {
     public class PumpAquifer : Directive
     {
-        public PumpAquifer(int times) : base(times)
+        public PumpAquifer(int times) 
+            : base(times)
         {
         }
     }

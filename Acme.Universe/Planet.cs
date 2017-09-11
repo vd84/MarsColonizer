@@ -5,6 +5,8 @@ namespace Acme.Universe
     public class Planet : IPlanet
     {
         public static Planet Mars => new Planet("Mars", 0, 0, -30);
+        public static Planet Earth => new Planet("Earth", 71, 21, 15);
+        public static Planet Venus => new Planet("Venus", 0, 0, 462);
 
         private Planet(string name, int oceanCoverage, int oxygenLevel, int averageTemperature)
         {

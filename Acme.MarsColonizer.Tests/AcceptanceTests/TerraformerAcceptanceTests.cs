@@ -3,36 +3,66 @@ using FluentAssertions;
 
 namespace Acme.MarsColonizer.Tests.AcceptanceTests
 {
-    public class TerraformerAcceptanceTests
+    public abstract class TerraformerAcceptanceTests
     {
-        protected Terraformer Sut;
-        protected PlanetAnalyzer Analyzer;
+        protected Terraformer Sut { get; private set; }
+        protected Planet CurrentPlanet { get; private set; }
+        protected PlanetaryAnalysis Analysis { get; private set; }
 
-        public void GivenThatIAmTerraformingMars()
+        protected void GivenThatIAmTerraformingMars()
         {
-            var mars = Planet.Mars;
-            Sut = new Terraformer(mars);
-            Analyzer = new PlanetAnalyzer(mars);
+            CurrentPlanet = Planet.Mars;
+            Sut = new Terraformer(CurrentPlanet);
         }
 
-        public void WhenIPerformTerraformingUsing(string orders)
+        protected void GivenThatIAmConsideringSettlingOnEarth()
+        {
+            CurrentPlanet = Planet.Earth;
+        }
+
+        protected void WhenIAnalyzeThePlanet()
+        {
+            var analyzer = new PlanetAnalyzer(CurrentPlanet);
+            Analysis = analyzer.Analyze();
+        }
+
+        protected void WhenIPerformTerraformingUsing(string orders)
         {
             Sut.Execute(orders);
         }
 
-        public void ThenTheOxygenLevelShouldBeEqualTo(int expected)
+        protected void ThenTheOxygenLevelShouldBeEqualTo(int expected)
         {
-            Analyzer.MeasureOxygenLevel().Should().Be(expected);
+            Analysis.OxygenLevel
+                .Should().Be(expected);
         }
 
-        public void ThenTheAverageTemperatureShouldBeEqualTo(int expected)
+        protected void ThenTheAverageTemperatureShouldBeEqualTo(int expected)
         {
-            Analyzer.MeasureAverageTemperature().Should().Be(expected);
+            Analysis.AverageTemperature
+                .Should().Be(expected);
         }
 
-        public void ThenTheOceanCoverageShouldBeEqualTo(int expected)
+        protected void ThenTheOceanCoverageShouldBeEqualTo(int expected)
         {
-            Analyzer.MeasureOceanCoverage().Should().Be(expected);
+            Analysis.OceanCoverage
+                .Should().Be(expected);
+        }
+
+        protected void ThenItIsFoundSuitableForSustainableHumanLife()
+        {
+            var analyzer = new SustainableLifeAnalyzer(Analysis);
+
+            analyzer.HasConditionsSuitableForSustainableHumanLife()
+                .Should().BeTrue();
+        }
+
+        protected void ThenItIsFoundUnsuitableForSustainableHumanLife()
+        {
+            var analyzer = new SustainableLifeAnalyzer(Analysis);
+
+            analyzer.HasConditionsSuitableForSustainableHumanLife()
+                .Should().BeFalse();
         }
     }
 }

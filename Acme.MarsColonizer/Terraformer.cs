@@ -22,8 +22,7 @@ namespace Acme.MarsColonizer
 
         internal void ProcessDirective(Directive directive)
         {
-            if (directive is ConstructGreenery)
-                Planet.ConstructGreenery();
+            Planet.ConstructGreenery();
         }
     }
 }

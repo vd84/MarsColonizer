@@ -2,7 +2,8 @@
 {
     public class CrashAsteroid : Directive
     {
-        public CrashAsteroid(int times) : base(times)
+        public CrashAsteroid(int times) 
+            : base(times)
         {
         }
     }

@@ -3,13 +3,14 @@ using Xunit;
 
 namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation2
 {
+    [Trait("Category", "Generation 2")]
     [Story(
         AsA = "Terraforming engineer",
         IWant = "To include directives of different types in a single order",
         SoThat = "I can create more efficient orders")]
     public class CombiningDirectives : TerraformerAcceptanceTests
     {
-        [Fact]
+        [Fact(Skip = "Not run in the first generation")]
         public void CombiningDifferentDirectives()
         {
             var terraformingOrders = string.Empty;
@@ -18,6 +19,7 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation2
             var oceanCoverage = 0;
             this.Given(_ => _.GivenThatIAmTerraformingMars())
                 .When(_ => _.WhenIPerformTerraformingUsing(terraformingOrders))
+                .And(_ => _.WhenIAnalyzeThePlanet())
                 .Then(_ => _.ThenTheOxygenLevelShouldBeEqualTo(oxygenLevel))
                 .And(_ => _.ThenTheAverageTemperatureShouldBeEqualTo(averageTemperature))
                 .And(_ => _.ThenTheOceanCoverageShouldBeEqualTo(oceanCoverage))

@@ -3,6 +3,7 @@ using Xunit;
 
 namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation1
 {
+    [Trait("Category", "Generation 1")]
     [Story(
         AsA = "Terraforming engineer",
         IWant = "To enter the directive for crashing asteroids as an A followed by the number of asteroids",
@@ -16,6 +17,7 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation1
             var averageTemperature = 0;
             this.Given(_ => _.GivenThatIAmTerraformingMars())
                 .When(_ => _.WhenIPerformTerraformingUsing(terraformingOrders))
+                .And(_ => _.WhenIAnalyzeThePlanet())
                 .Then(_ => _.ThenTheAverageTemperatureShouldBeEqualTo(averageTemperature))
                 .WithExamples(new ExampleTable("Terraforming orders", "Average Temperature")
                 {

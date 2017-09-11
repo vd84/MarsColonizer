@@ -3,6 +3,7 @@ using Xunit;
 
 namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation1
 {
+    [Trait("Category", "Generation 1")]
     [Story(
         AsA = "Terraforming engineer",
         IWant = "To enter the directive for creating greeneries as a G followed by the number of greeneries",
@@ -16,6 +17,7 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation1
             var oxygenLevel = 0;
             this.Given(_ => _.GivenThatIAmTerraformingMars())
                 .When(_ => _.WhenIPerformTerraformingUsing(terraformingOrders))
+                .And(_ => _.WhenIAnalyzeThePlanet())
                 .Then(_ => _.ThenTheOxygenLevelShouldBeEqualTo(oxygenLevel))
                 .WithExamples(new ExampleTable("Terraforming orders", "Oxygen Level")
                 {

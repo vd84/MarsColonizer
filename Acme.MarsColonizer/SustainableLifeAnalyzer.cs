@@ -3,10 +3,9 @@ using Acme.Universe;
 
 namespace Acme.MarsColonizer
 {
-    public class SustainableLifePlanetAnalyzer : PlanetAnalyzer
+    public class SustainableLifeAnalyzer
     {
-        public SustainableLifePlanetAnalyzer(Planet planet) 
-            : base(planet)
+        public SustainableLifeAnalyzer(PlanetaryAnalysis analysis) 
         {
         }
 

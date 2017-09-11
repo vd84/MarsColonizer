@@ -5,16 +5,17 @@ using Xunit;
 
 namespace Acme.MarsColonizer.Tests.UnitTests
 {
+    [Trait("Category", "Unit")]
     public class TerraformerTests
     {
         protected readonly Planet Mars = Planet.Mars;
         protected readonly Terraformer Sut;
-        protected readonly SustainableLifePlanetAnalyzer Analyzer;
+        protected readonly PlanetAnalyzer Analyzer;
 
         public TerraformerTests()
         {
             Sut = new Terraformer(Mars);
-            Analyzer = new SustainableLifePlanetAnalyzer(Mars);
+            Analyzer = new PlanetAnalyzer(Mars);
         }
 
         [Fact]
@@ -25,11 +26,11 @@ namespace Acme.MarsColonizer.Tests.UnitTests
 
             // Act
             Sut.ProcessDirective(directive);
+            var analysis = Analyzer.Analyze();
 
             // Assert
-            Analyzer.MeasureAverageTemperature()
+            analysis.AverageTemperature
                 .Should().Be(-28);
         }
     }
 }
-

@@ -9,19 +9,28 @@ namespace Acme.Universe
             Planet = planet ?? throw new ArgumentNullException(nameof(planet));
         }
 
+        public PlanetaryAnalysis Analyze()
+        {
+            return new PlanetaryAnalysis(
+                Planet.Name, 
+                MeasureOxygenLevel(), 
+                MeasureOceanCoverage(),
+                MeasureAverageTemperature());
+        }
+
         public Planet Planet { get; }
 
-        public int MeasureOxygenLevel()
+        private int MeasureOxygenLevel()
         {
             return Planet.OxygenLevel;
         }
 
-        public int MeasureOceanCoverage()
+        private int MeasureOceanCoverage()
         {
             return Planet.OceanCoverage;
         }
 
-        public int MeasureAverageTemperature()
+        private int MeasureAverageTemperature()
         {
             return Planet.AverageTemperature;
         }

@@ -5,6 +5,7 @@ using Xunit;
 
 namespace Acme.MarsColonizer.Tests.UnitTests
 {
+    [Trait("Category", "Unit")]
     public class DirectiveIdentifierTests
     {
         [Fact]
