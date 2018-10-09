@@ -1,15 +1,17 @@
-﻿using Acme.MarsColonizer.Directives;
+﻿using Acme.MarsColonizer;
 using Acme.Universe;
+using Acme.Universe.Terraforming;
+using Acme.Universe.Terraforming.Directives;
 using FluentAssertions;
 using Xunit;
 
-namespace Acme.MarsColonizer.Tests.UnitTests
+namespace UnitTests
 {
     [Trait("Category", "Unit")]
     public class TerraformerTests
     {
         protected readonly Planet Mars = Planet.Mars;
-        protected readonly Terraformer Sut;
+        protected readonly Terraformer Sut; // System Under Test
         protected readonly PlanetAnalyzer Analyzer;
 
         public TerraformerTests()
@@ -31,6 +33,17 @@ namespace Acme.MarsColonizer.Tests.UnitTests
             // Assert
             analysis.AverageTemperature
                 .Should().Be(-28);
+        }
+    }
+
+    [Trait("Category", "Unit")]
+    public class DirectiveIdentifierTests
+    {
+        [Fact]
+        public void CanIdentifyGreenery()
+        {
+            DirectiveIdentifier.Parse("G1")
+                .Should().BeOfType<ConstructGreenery>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Acme.Universe
+﻿namespace Acme.Universe.Terraforming
 {
     public class PlanetaryAnalysis
     {

@@ -1,7 +1,6 @@
 ﻿using System;
-using Acme.MarsColonizer.Directives;
-using Acme.MarsColonizer.Text;
 using Acme.Universe;
+using Acme.Universe.Terraforming.Directives;
 
 namespace Acme.MarsColonizer
 {
@@ -23,6 +22,14 @@ namespace Acme.MarsColonizer
         internal void ProcessDirective(Directive directive)
         {
             Planet.ConstructGreenery();
+        }
+    }
+
+    public static class DirectiveIdentifier
+    {
+        public static Directive Parse(string input)
+        {
+            return new ConstructGreenery(1);
         }
     }
 }

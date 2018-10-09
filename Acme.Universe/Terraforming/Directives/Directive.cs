@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Acme.MarsColonizer.Directives
+namespace Acme.Universe.Terraforming.Directives
 {
     public abstract class Directive
     {

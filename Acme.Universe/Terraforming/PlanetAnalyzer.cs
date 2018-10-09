@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Acme.Universe
+namespace Acme.Universe.Terraforming
 {
     public class PlanetAnalyzer
     {

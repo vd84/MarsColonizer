@@ -1,4 +1,4 @@
-﻿namespace Acme.MarsColonizer.Directives
+﻿namespace Acme.Universe.Terraforming.Directives
 {
     public class CrashAsteroid : Directive
     {

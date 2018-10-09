@@ -1,7 +1,8 @@
 using Acme.Universe;
+using Acme.Universe.Terraforming;
 using FluentAssertions;
 
-namespace Acme.MarsColonizer.Tests.AcceptanceTests
+namespace Acme.MarsColonizer.Tests.AcceptanceTests.Common
 {
     public abstract class TerraformerAcceptanceTests
     {

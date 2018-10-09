@@ -1,7 +1,8 @@
-﻿using TestStack.BDDfy;
+﻿using Acme.MarsColonizer.Tests.AcceptanceTests.Common;
+using TestStack.BDDfy;
 using Xunit;
 
-namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation2
+namespace AcceptanceTests.Generation2
 {
     [Trait("Category", "Generation 2")]
     [Story(
@@ -34,6 +35,23 @@ namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation2
                     { "A2,G1,P2", 1, -26, 2 },
                     { "P2,G1,A2", 1, -26, 2 }
                 })
+                .BDDfy();
+        }
+    }
+
+    [Trait("Category", "Generation 2")]
+    [Story(
+        AsA = "Interplanetary colonist",
+        IWant = "To to analyze the conditions on a planet",
+        SoThat = "I can be certain that I can live there perpetually")]
+    public class AnalyzingIfPlanetCanSustainLife : TerraformerAcceptanceTests
+    {
+        [Fact(Skip = "Not run in the first generation")]
+        public void TerraformingMarsCompletely()
+        {
+            this.Given(_ => _.GivenThatIAmConsideringSettlingOnEarth())
+                .When(_ => _.WhenIAnalyzeThePlanet())
+                .Then(_ => _.ThenItIsFoundSuitableForSustainableHumanLife())
                 .BDDfy();
         }
     }

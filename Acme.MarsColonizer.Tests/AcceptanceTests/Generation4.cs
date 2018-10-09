@@ -1,7 +1,8 @@
-﻿using TestStack.BDDfy;
+﻿using Acme.MarsColonizer.Tests.AcceptanceTests.Common;
+using TestStack.BDDfy;
 using Xunit;
 
-namespace Acme.MarsColonizer.Tests.AcceptanceTests.Generation4
+namespace AcceptanceTests.Generation4
 {
     [Trait("Category", "Generation 4")]
     [Story(
