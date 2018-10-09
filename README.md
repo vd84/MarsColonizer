@@ -1,7 +1,7 @@
 # Acme.MarsColonizer
 A TDD lab/exercise loosely based on Roy Osherove's TDD Kata and the Terraforming Mars boardgame by Fryxgames.
 
-The lab is divided into 4 separate generations, which introduce new requirements and further the terraforming efforts on Mars. The idea is that each generation is only revealed upon the successful completion of the previous generation (no peeking).
+The lab is divided into 4 separate generations, which introduce new requirements and further the terraforming efforts on Mars. The idea is that each generation is only revealed upon the successful completion of the previous generation (no peeking). This simulates the concept of requirements evolving and refining over time, rather than being completely finished up-front before any development effort has begun.
 
 ## Recommended setup
 If using Visual Studio, setting the Test Explorer to "Show Test Hierarchy" gives a clear separation of unit tests and acceptance tests.
