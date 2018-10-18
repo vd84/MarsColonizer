@@ -10,11 +10,24 @@ Note that some files contain multiple classes and/or have unconventional namespa
 ## Generation 1
 The terraforming effort has just started. Our engineers need to be able to raise temperature by crashing asteroids into the atmosphere, introduce oxygen into the atmosphere by constructing greeneries and secure water supplies by pumping up water from beneath the planet's surface.
 
+Training opportunities: 
+- Writing (and naming) tests
+- Running tests
+- Getting into the Red-Green-Refactor cycle
+
 ## Generation 2
 The terraforming effort is gaining momentum, and we need to effectivise it by combining multiple terraforming directives into longer sequences. Meanwhile, our colonists are in intense training on earth.
 
+Training opportunities: 
+- Dealing with code duplication as the number of unit tests grow, e.g. using xUnit Theories and introducing helper methods. 
+- Refactoring code and tests to handle new requirements. Should the new behavior be added to the existing method or be expressed as a brand new method/class?
+
 ## Generation 3
 Several separate organizations have established their presence on Mars and we need to coordinate the terraforming processes regardless of petty details like data formats and divergent standards.
+
+Training opportunities: 
+- More code duplication hell
+- Emphasizing the "Refactor" part of the TDD cycle
 
 ## Generation 4
 The terraforming of Mars is now nearing completion, and the first colonists are ready to hit the ground as soon as all critical parameters are within the acceptable range.
