@@ -21,7 +21,28 @@ namespace Acme.MarsColonizer
 
         internal void ProcessDirective(Directive directive)
         {
-            Planet.ConstructGreenery();
+            try
+            {
+                switch (directive.GetType().Name.ToString())
+                {
+                    case "ConstructGreenery":
+                        for (var i = 0; i < directive.Times; i++)
+                            Planet.ConstructGreenery();
+                        break;
+                    case "CrashAsteroid":
+                        for (var i = 0; i < directive.Times; i++)
+                            Planet.CrashAsteroid();
+                        break;
+                    case "PumpAquifer":
+                        for (var i = 0; i < directive.Times; i++)
+                            Planet.PumpAquifer();
+                        break;
+
+                }
+            } catch(Exception)
+            {
+                return;
+            }
         }
     }
 
@@ -29,7 +50,20 @@ namespace Acme.MarsColonizer
     {
         public static Directive Parse(string input)
         {
-            return new ConstructGreenery(1);
+            if(input == "")
+            {
+                return null;
+            }
+            switch (input.Substring(0,1))
+            {
+                case "G":
+                    return new ConstructGreenery(int.Parse(input.Substring(1,input.Length-1)));
+                case "A":
+                    return new CrashAsteroid(int.Parse(input.Substring(1, input.Length - 1)));
+                case "P":
+                    return new PumpAquifer(int.Parse(input.Substring(1, input.Length - 1)));
+            }
+            return null;
         }
     }
 }

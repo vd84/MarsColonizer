@@ -11,7 +11,7 @@ namespace AcceptanceTests.Generation2
         SoThat = "I can create more efficient orders")]
     public class CombiningDirectives : TerraformerAcceptanceTests
     {
-        [Fact(Skip = "Not run in the first generation")]
+        [Fact]
         public void CombiningDifferentDirectives()
         {
             var terraformingOrders = string.Empty;
