@@ -1,6 +1,7 @@
-﻿using System;
-using Acme.Universe;
+﻿using Acme.Universe;
 using Acme.Universe.Terraforming.Directives;
+using System;
+using System.Collections.Generic;
 
 namespace Acme.MarsColonizer
 {
@@ -15,8 +16,11 @@ namespace Acme.MarsColonizer
 
         public void Execute(string orders)
         {
-            var directive = DirectiveIdentifier.Parse(orders);
-            ProcessDirective(directive);
+            var directiveList = DirectiveIdentifier.ParseList(orders);
+            foreach (var directive in directiveList)
+            {
+                ProcessDirective(directive);
+            }
         }
 
         internal void ProcessDirective(Directive directive)
@@ -39,7 +43,8 @@ namespace Acme.MarsColonizer
                         break;
 
                 }
-            } catch(Exception)
+            }
+            catch (Exception)
             {
                 return;
             }
@@ -48,16 +53,31 @@ namespace Acme.MarsColonizer
 
     public static class DirectiveIdentifier
     {
+        public static List<Directive> ParseList(string input)
+        {
+
+            var directiveList = input.Split(new char[] { ',', '\n', ' ', ';' }) ;
+            var list = new List<Directive>();
+
+            foreach (var directive in directiveList)
+            {
+                list.Add(Parse(directive));
+            }
+
+            return list;
+        }
+
         public static Directive Parse(string input)
         {
-            if(input == "")
+            if (input == "")
             {
                 return null;
             }
-            switch (input.Substring(0,1))
+
+            switch (input.Substring(0, 1))
             {
                 case "G":
-                    return new ConstructGreenery(int.Parse(input.Substring(1,input.Length-1)));
+                    return new ConstructGreenery(int.Parse(input.Substring(1, input.Length - 1)));
                 case "A":
                     return new CrashAsteroid(int.Parse(input.Substring(1, input.Length - 1)));
                 case "P":

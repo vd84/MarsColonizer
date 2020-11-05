@@ -11,7 +11,7 @@ namespace AcceptanceTests.Generation4
         SoThat = "I can be certain that I can live there perpetually")]
     public class SustainableLife : TerraformerAcceptanceTests
     {
-        [Fact(Skip = "Not run in the first 3 generations")]
+        [Fact]
         public void TerraformingMarsCompletely()
         {
             var minimumTerraformingNecessary = "P9,A19,G14";
@@ -22,7 +22,7 @@ namespace AcceptanceTests.Generation4
                 .BDDfy();
         }
 
-        [Fact(Skip = "Not run in the first 3 generations")]
+        [Fact]
         public void TerraformingMarsAlmostCompletely()
         {
             var terraformingOrders = string.Empty;

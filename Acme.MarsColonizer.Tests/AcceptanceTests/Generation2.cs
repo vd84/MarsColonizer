@@ -46,7 +46,7 @@ namespace AcceptanceTests.Generation2
         SoThat = "I can be certain that I can live there perpetually")]
     public class AnalyzingIfPlanetCanSustainLife : TerraformerAcceptanceTests
     {
-        [Fact(Skip = "Not run in the first generation")]
+        [Fact]
         public void TerraformingMarsCompletely()
         {
             this.Given(_ => _.GivenThatIAmConsideringSettlingOnEarth())

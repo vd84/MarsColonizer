@@ -11,7 +11,7 @@ namespace AcceptanceTests.Generation3
         SoThat = "I can receive orders from various sources more easily")]
     public class CombiningDirectivesUsingDifferentSeparators : TerraformerAcceptanceTests
     {
-        [Fact(Skip = "Not run in the first 2 generations")]
+        [Fact]
         public void CombiningDifferentDirectives()
         {
             var terraformingOrders = string.Empty;
@@ -47,7 +47,7 @@ namespace AcceptanceTests.Generation3
         SoThat = "I can receive orders from various sources more easily")]
     public class MultipleDirectivesOfSameKind : TerraformerAcceptanceTests
     {
-        [Fact(Skip = "Not run in the first 2 generations")]
+        [Fact]
         public void UsingMultipleDirectivesOfSameKind()
         {
             var terraformingOrders = string.Empty;
