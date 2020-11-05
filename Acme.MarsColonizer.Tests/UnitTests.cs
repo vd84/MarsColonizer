@@ -122,7 +122,6 @@ namespace UnitTests
             var directiveConstructGreenery = new ConstructGreenery(G);
             var directivePumpAquifer = new PumpAquifer(P);
 
-
             // Act
             Sut.ProcessDirective(directiveCrashAsteroid);
             Sut.ProcessDirective(directiveConstructGreenery);
@@ -171,7 +170,6 @@ namespace UnitTests
             analysis.OceanCoverage
                 .Should().Be(oceanCoverage);
         }
-
     }
 
     [Trait("Category", "Unit")]
@@ -221,7 +219,6 @@ namespace UnitTests
         [InlineData("G1,G1,G1")]
         [InlineData("G1,G1,G1,G1,G1,G1,G1,G1,G1,G1")]
         [InlineData("G1,P1,G1,P1,G1")]
-
         public void CanIdentifyrDirective(string directiveList)
         {
             DirectiveIdentifier.ParseList(directiveList)
