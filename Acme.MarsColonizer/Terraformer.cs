@@ -2,6 +2,7 @@
 using Acme.Universe.Terraforming.Directives;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Acme.MarsColonizer
 {
@@ -56,15 +57,9 @@ namespace Acme.MarsColonizer
         public static List<Directive> ParseList(string input)
         {
 
-            var directiveList = input.Split(new char[] { ',', '\n', ' ', ';' }) ;
-            var list = new List<Directive>();
+            var directiveList = input.Split(',', '\n', ' ', ';') ;
 
-            foreach (var directive in directiveList)
-            {
-                list.Add(Parse(directive));
-            }
-
-            return list;
+            return directiveList.Select(Parse).ToList();
         }
 
         public static Directive Parse(string input)
